@@ -1,0 +1,9 @@
+{
+  "fake_img_dir":"static/fake_imgs",
+
+  "user_img_dir":"static/user_imgs",
+
+  "style_gan_message":"style_gan_message.json",
+  "star_gan_message": "star_gan_message.json",
+  "static_file": "static"
+}

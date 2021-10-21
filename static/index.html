@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>于波的gan平台</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/product_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" media="screen" />
+</head>
+
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+	
+	<header class="header">
+
+		<!-- Top Bar -->
+
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+19115621964</div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:2358341499@qq.com">2358341499@qq.com</a></div>
+						<div class="top_bar_content ml-auto">
+
+							<div class="top_bar_user">
+								<div class="user_icon"><img src="images/user.svg" alt=""></div>
+								<div><a href="#">Register</a></div>
+								<div><a href="#">Sign in</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+
+		<nav class="main_nav">
+			<div class="container">
+
+				<!-- Main Nav Menu -->
+				<div class="main_nav_menu ml-auto col-lg-12">
+					<ul class="standard_dropdown main_nav_dropdown">
+						<li class="col-lg-2">
+							<a href="/index">human face gan<i class="fas fa-chevron-down"></i></a>
+						</li>
+						<li class="col-lg-2">
+							<a href="/animal_gan">animal face gan<i class="fas fa-chevron-down"></i></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+
+		</nav>
+		<!-- Header Main -->
+		<!-- Menu -->
+
+	</header>
+
+	<!-- Single Product -->
+
+	<div class="main_area" style="margin-top: 2%;margin-bottom: 5%;width: 100%">
+
+		<div class="container" style="min-width: 100%;margin-bottom: 1%;border-bottom: #1b1e21 solid">
+            <div class="row" style="min-width: 100%;">
+                <!-- Selected Image Display -->
+                <div class="col-lg-6 order-lg-2 order-1" style="height: 100%;border: blue solid">
+                    <div id="image_info" class="row" style="margin-left: 2%;margin-top: 2%;margin-bottom: 19%">
+                        <h3>select image:</h3>
+                        <div style="width: 8%; margin-bottom: 2%" >
+                            <select class="form-control" id="current-image" style="font-family: 微软雅黑; margin-left: 0px">
+                            </select>
+                        </div>
+                        <h3 style="margin-left: 5%">upload image:</h3>
+                        <div id="upload_image" style="margin-bottom: 2%;">
+
+                            <input type="file" id="file"><br>
+                            <div id="up_progress">
+                                <div class="progress-item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 100%;border: #0e8ce4 solid;align-items: center;align-content: center">
+                        <img id="user_img" src="images/cover.jpg" alt=""
+                        style="display: block; width: 100%; height: 100%">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 order-lg-2 order-3" style="height: 100%; border: red solid">
+                    <div id="gan-param-set" class="row" style="border: white solid;">
+
+                    </div>
+
+                    <div style="height: 100%; border: red solid;align-items: center;align-content: center">
+                        <img id="fake_img" src="images/cover.jpg" alt=""
+                        style="width: 100%; height: 100%">
+                    </div>
+                </div>
+
+                <!-- Description -->
+
+<!--			<div class="row" style="min-width: 105%;">-->
+<!--				&lt;!&ndash; Selected Image Display &ndash;&gt;-->
+<!--				<div class="col-lg-5 order-lg-2 order-1" style="height: 100%;margin-left: 5%">-->
+<!--					<div>-->
+<!--                        <img id="src_img" src="images/cover.jpg" alt="" style="width: 100%;">-->
+<!--                    </div>-->
+<!--				</div>-->
+<!--                <div class="col-lg-0 order-lg-2 order-1">-->
+<!--                    <button class="btn-warning" id="convert" style="align-self: center;width: 100%;height: 10%;margin-top: 300%">convert</button>-->
+<!--                </div>-->
+<!--                <div class="col-lg-5 order-lg-2 order-3" style="height: 100%;margin-right: 5%;">-->
+<!--                    <div>-->
+<!--                        <img id="gan_img" src="images/cover.jpg" alt="" style="width: 100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--				&lt;!&ndash; Description &ndash;&gt;-->
+
+<!--			</div>-->
+		</div>
+	</div>
+        <div class="row" style="display: flex;justify-content: center;align-items: center;">
+            <button id="convert_0" class="btn-warning" style="height: 20%;width: 5%;margin-bottom: 1%;margin-right: 2%;font-size: x-large;font-family:微软雅黑; ">blend_1</button>
+
+			<button id="convert_1" class="btn-warning" style="height: 20%;width: 5%;margin-bottom: 1%;margin-left: 2%;font-size: x-large;font-family:微软雅黑; ">blend_2</button>
+		</div>
+
+	<div class="row" style="display: flex;justify-content: center;align-items: center;">
+				<img id="blend_img" src="images/cover.jpg" alt=""
+					 style="display: block; width: 50%; height: 50%;border: green solid">
+
+		</div>
+	<!-- Copyright -->
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					
+					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+
+</html>
