@@ -26,28 +26,30 @@ var config_file config
 
 // send gan-nn param
 type style_gan_message struct {
+	UserImg          string `json:"user_img"`
 	Seed             string `json:"seed"`
-	Age              string `json:"age"`
-	Angle_horizontal string `json:"angle_horizontal"`
-	Angle_pitch      string `json:"angle_pitch"`
-	Beauty           string `json:"beauty"`
-	Emotion_angry    string `json:"emotion_angry"`
-	Emotion_disgust  string `json:"emotion_disgust"`
-	Emotion_easy     string `json:"emotion_easy"`
-	Emotion_fear     string `json:"emotion_fear"`
-	Emotion_happy    string `json:"emotion_happy"`
-	Emotion_sad      string `json:"emotion_sad"`
-	Emotion_surprise string `json:"emotion_surprise"`
-	Eyes_open        string `json:"eyes_open"`
-	Face_shape       string `json:"face_shape"`
-	Gender           string `json:"gender"`
-	Glasses          string `json:"glasses"`
-	Height           string `json:"height"`
-	Race_black       string `json:"race_black"`
-	Race_white       string `json:"race_white"`
-	Race_yellow      string `json:"race_yellow"`
-	Smile            string `json:"smile"`
-	Width            string `json:"width"`
+	Age             string `json:"age"`
+	AngleHorizontal string `json:"angle_horizontal"`
+	AnglePitch      string `json:"angle_pitch"`
+	Beauty          string `json:"beauty"`
+	EmotionAngry    string `json:"emotion_angry"`
+	EmotionDisgust  string `json:"emotion_disgust"`
+	EmotionEasy     string `json:"emotion_easy"`
+	EmotionFear     string `json:"emotion_fear"`
+	EmotionHappy    string `json:"emotion_happy"`
+	EmotionSad      string `json:"emotion_sad"`
+	EmotionSurprise string `json:"emotion_surprise"`
+	EyesOpen        string `json:"eyes_open"`
+	FaceShape       string `json:"face_shape"`
+	Gender          string `json:"gender"`
+	Glasses         string `json:"glasses"`
+	Height          string `json:"height"`
+	RaceBlack       string `json:"race_black"`
+	RaceWhite       string `json:"race_white"`
+	RaceYellow      string `json:"race_yellow"`
+	Smile           string `json:"smile"`
+	Width           string `json:"width"`
+	Cartoon 	    string `json:"cartoon"`
 }
 var style_gan_msg style_gan_message
 

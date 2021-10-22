@@ -2,6 +2,7 @@
 current_image = ""
 
 direction_val = {
+    'user_img':"",
     'seed':0,
     'age': 0,
     'angle_horizontal': 0,
@@ -24,28 +25,30 @@ direction_val = {
     'race_yellow': 0,
     'smile': 0,
     'width': 0,
+    'cartoon':0,
 }
 
 $(function () {
     var html_str = "";
     $.each(direction_val,function (key,val){
-
-        if(key !== 'seed')
+        if(key !== 'seed' && key!=='user_img')
         {
-            html_str += '<div style="width:24%; float: left;border-bottom: #1b1e21 dashed;justify-content: center;align-items: center" >\n' +
-                '                            <button class="btn-primary" style="margin-left:1%;margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large;float: left">'+key+'</button>\n' +
-                '                            <input type="number" class="face_param" id='+key+' value='+val+' max="99" min="-99" style="margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large;">\n' +
+            html_str += '<div style="width:24%; float: left; justify-content: center;align-items: center" >\n' +
+                '                            <button class="btn-primary" style="height:34px; width:166px; margin-left:10%; margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large;float: left; border:medium none; border-radius: 5px;">&nbsp;'+key+'&nbsp;</button>\n' +
+                '                            <input type="number" class="face_param" id='+key+' value='+val+' max="99" min="-99" style="height:34px; width:166px; margin-left:10%; margin-top:1%; margin-bottom:1%; font-family: 微软雅黑; font-size: large; text-align:center; border-radius: 5px;">\n' +
                 '                        </div>'
         }
 
     })
-    html_str += '<div style="width:24%; float: left;border-bottom: #1b1e21 dashed;justify-content: center;align-items: center" >\n' +
-        '                            <button class="btn-primary" style="margin-left:1%;margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large;float: left">seed</button>\n' +
-        '                            <input type="number" class="face_param" id="seed" value=0 min="0" max="9999" style="margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large;">\n' +
+    // border-bottom: #1b1e21 dashed; 
+    html_str += '<div style="width:24%; float: left; justify-content: center;align-items: center" >\n' +
+        '                            <button class="btn-primary" style="height:34px; width:166px; border-radius: 5px; margin-left:10%; margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large;float: left">seed</button>\n' +
+        '                            <input type="number" class="face_param" id="seed" value=0 min="0" max="9999" style="height:34px; width:166px;margin-left:10%; border-radius: 5px; margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: large; text-align:center;">\n' +
         '                        </div>'
-    html_str += '<div style="width:24%; float: left;justify-content: center;align-items: center" >\n' +
-        '                                   <button id="image_generate" class="btn-warning" style="margin-left:100%;margin-top:1%;margin-bottom:1%;font-family: 微软雅黑;font-size: x-large;float: left">generate</button>\n' +
-        '                                </div>'
+    html_str += 
+        '                            <div id="circle-btn" style="width:24%; float: left;justify-content: center;align-items: center" >\n' +
+        '                                <button id="image_generate" class="btn-warning" style="height:60px; width:180px; margin-left:10%; margin-top:4%; font-family: 微软雅黑; font-size: x-large;float: left; border:medium none; border-radius: 16px;">&nbsp;generate&nbsp;&nbsp;➤&nbsp;</button>\n' +
+        '                            </div>'
     $('#gan-param-set').html(html_str);
     // 加载按键信息
     set_click_response();
@@ -70,6 +73,7 @@ function get_base_info() {
             $.each(img_list, function (i, img_name) {
                 $("#current-image").append("<option value=" + img_name + ">"+img_name+"</option>");
             });
+            $("#current-image").append("<option value=''></option>");
             $('#current-image').on('change', function(e){
                 if (e.originalEvent) {
                     let selected_img = $(this).find("option:selected").val();
@@ -204,6 +208,7 @@ function generate_image(){
     $('.face_param').each(function (){
         direction_val[$(this).attr('id')] = $(this).val()
     })
+    direction_val['user_img'] = current_image
     var post_data = JSON.stringify(direction_val)
     $.ajax({
         url: "/generate_img/",
@@ -211,12 +216,13 @@ function generate_image(){
         cache:false,
         data:post_data,
         success: function (data) {
-            var fake_img = "fake_imgs/"
+            var fake_img = "fake_imgs/"+current_image.replace(".jpg","").replace(".png","").replace(".jpeg","")
             $.each(direction_val,function (key,val){
-                fake_img+=val.toString()
+                if(key !== "user_img")
+                    fake_img+=val.toString()
             })
             fake_img += '.png'
-            $('#fake_img').attr("src", fake_img);
+            $('#user_img').attr("src", fake_img);
             var img = new Image()
             // 改变图片的src
             img.src = fake_img
@@ -228,7 +234,7 @@ function generate_image(){
                 var realHeight = img.height;//获取图片真实高度
                 var scale = Math.max(realWidth/windowW,realHeight/windowH);//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放
                 // console.log(realWidth,realHeight,windowW,windowH,scale)
-                $('#fake_img').css({"width":realWidth/scale,"height":realHeight/scale});
+                $('#user_img').css({"width":realWidth/scale,"height":realHeight/scale});
             }
             alert("generate success!")
         },

@@ -21,6 +21,24 @@
 
 <body>
 
+<style type="text/css">
+	.btn-warning {
+
+		border: 0;
+		border-radius: 50px;
+		color: white;
+		background: #5f55af;
+		text-transform: uppercase;
+		background: linear-gradient(to right,#f72585 50%, #5f55af 50%);
+		background-size: 200% 100%;
+		background-position: right bottom;
+		transition:all 1.2s ease;
+	}
+	button:hover {
+		background-position: left bottom;
+	}
+</style>
+
 <div class="super_container">
 	
 	<!-- Header -->
@@ -48,7 +66,7 @@
 			</div>		
 		</div>
 
-		<nav class="main_nav">
+		<nav class="main_nav" style="background:url(images/theme_back.png); background-position:100%; background-repeat:no-repeat;">
 			<div class="container">
 
 				<!-- Main Nav Menu -->
@@ -76,15 +94,14 @@
 
 	<div class="main_area" style="margin-top: 2%;margin-bottom: 5%;width: 100%">
 
-		<div class="container" style="min-width: 100%;margin-bottom: 1%;border-bottom: #1b1e21 solid">
-            <div class="row" style="min-width: 100%;">
+		<div class="container" style="min-width: 100%;margin-bottom: 1%;">
+            <div class="row" style="margin-left: 0.5%; margin-right:0.5%; min-width: 94%; border: #0e8ce4 solid; border-radius: 16px;">
                 <!-- Selected Image Display -->
-                <div class="col-lg-6 order-lg-2 order-1" style="height: 100%;border: blue solid">
+                <div class="col-lg-6 order-lg-2 order-1" style="height: 100%;">
                     <div id="image_info" class="row" style="margin-left: 2%;margin-top: 2%;margin-bottom: 19%">
                         <h3>select image:</h3>
                         <div style="width: 8%; margin-bottom: 2%" >
-                            <select class="form-control" id="current-image" style="font-family: 微软雅黑; margin-left: 0px">
-                            </select>
+                            <select class="form-control" id="current-image" style="font-family: 微软雅黑; margin-left: 0px"></select>
                         </div>
                         <h3 style="margin-left: 5%">upload image:</h3>
                         <div id="upload_image" style="margin-bottom: 2%;">
@@ -95,21 +112,18 @@
                             </div>
                         </div>
                     </div>
-                    <div style="height: 100%;border: #0e8ce4 solid;align-items: center;align-content: center">
-                        <img id="user_img" src="images/cover.jpg" alt=""
-                        style="display: block; width: 100%; height: 100%">
+                    <div style="height: 100%; align-items: center; align-content: center">
+                        <img id="user_img" src="images/cover.jpg" alt="" style="margin-top:-20%; display: block; width: 100%; height: 100%;">
                     </div>
                 </div>
 
-                <div class="col-lg-6 order-lg-2 order-3" style="height: 100%; border: red solid">
-                    <div id="gan-param-set" class="row" style="border: white solid;">
-
+                <div class="col-lg-6 order-lg-2 order-3" style="height: 100%;">
+                    <div id="gan-param-set" class="row" style="margin-top:0.4%; margin-bottom:0.4%; margin-right:0.1%; border-left: red solid; border-radius: 16px">
                     </div>
 
-                    <div style="height: 100%; border: red solid;align-items: center;align-content: center">
-                        <img id="fake_img" src="images/cover.jpg" alt=""
-                        style="width: 100%; height: 100%">
-                    </div>
+<!--                     <div style="height: 100%; border: red solid;align-items: center;align-content: center">
+                        <img id="fake_img" src="images/cover.jpg" alt="" style="width: 100%; height: 100%">
+                    </div> -->
                 </div>
 
                 <!-- Description -->
@@ -134,7 +148,7 @@
 
 <!--			</div>-->
 		</div>
-	</div>
+<!-- 	</div>
         <div class="row" style="display: flex;justify-content: center;align-items: center;">
             <button id="convert_0" class="btn-warning" style="height: 20%;width: 5%;margin-bottom: 1%;margin-right: 2%;font-size: x-large;font-family:微软雅黑; ">blend_1</button>
 
@@ -145,7 +159,7 @@
 				<img id="blend_img" src="images/cover.jpg" alt=""
 					 style="display: block; width: 50%; height: 50%;border: green solid">
 
-		</div>
+		</div> -->
 	<!-- Copyright -->
 
 	<div class="copyright">
